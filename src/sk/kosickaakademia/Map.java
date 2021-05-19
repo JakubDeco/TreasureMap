@@ -21,11 +21,52 @@ public class Map {
             printMap();
             placeTreasureAndBoat();
             printMap();
-            findRout();
-        }
-        else{
+            if (findRoute()){
+                System.out.println("Route to treasure will take " + routeLength() + "days.");
+            }
+        } else {
             throw new InvalidInputException("invalid input");
         }
+    }
+
+    private int routeLength() {
+        int result = 0;
+        for (int i = 0; i < height; i++) {
+
+            for (int j = 0; j < width; j++) {
+
+                if (map[i][j] == -2){
+                    //look N
+                    i--;
+                    if(indexInBound(i,j)){
+                        result = Math.max(map[i][j], result);
+                    }
+                    i++;
+
+                    //look S
+                    i++;
+                    if(indexInBound(i,j)){
+                        result = Math.max(map[i][j], result);
+                    }
+                    i--;
+
+                    //look W
+                    j--;
+                    if(indexInBound(i,j)){
+                        result = Math.max(map[i][j], result);
+                    }
+                    j++;
+
+                    //look W
+                    j++;
+                    if(indexInBound(i,j)){
+                        result = Math.max(map[i][j], result);
+                    }
+                    j--;
+                }
+            }
+        }
+        return result;
     }
 
     private void placeTreasureAndBoat(){
@@ -156,7 +197,7 @@ public class Map {
         return row>=0 && row<height && column>=0 && column<width;
     }
 
-    public boolean findRout(){
+    public boolean findRoute(){
 
         int currentTile = -1;
         int replacement = 2;
@@ -226,14 +267,4 @@ public class Map {
         return false;
     }
     //
-
-    public static void main(String[] args) {
-        try {
-            int[] rowCodes = new int[]{3001,212,84,1172,0,4095,780,500,0,707,516,700};
-            Map map = new Map(12,12,rowCodes);
-        }
-        catch (InvalidInputException e){
-            e.printStackTrace();
-        }
-    }
 }
