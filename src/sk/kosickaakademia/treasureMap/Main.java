@@ -1,4 +1,4 @@
-package sk.kosickaakademia;
+package sk.kosickaakademia.treasureMap;
 
 public class Main {
     public static void main(String[] args) {

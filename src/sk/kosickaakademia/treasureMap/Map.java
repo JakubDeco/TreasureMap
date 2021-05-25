@@ -1,4 +1,4 @@
-package sk.kosickaakademia;
+package sk.kosickaakademia.treasureMap;
 
 
 import java.util.Scanner;

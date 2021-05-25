@@ -1,4 +1,4 @@
-package sk.kosickaakademia;
+package sk.kosickaakademia.treasureMap;
 
 public class InvalidInputException extends Exception{
     public InvalidInputException(String message) {
