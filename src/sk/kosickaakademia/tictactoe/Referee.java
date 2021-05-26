@@ -5,7 +5,7 @@ public class Referee {
 
     private Referee(){}
 
-    private byte findWinner(byte[][] matrix){
+    public byte findWinner(byte[][] matrix){
         if (matrix == null || !isValidMatrix(matrix)) return 0;
 
         byte winner;
