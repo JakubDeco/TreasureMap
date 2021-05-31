@@ -3,6 +3,7 @@ package sk.kosickaakademia.lambda.sorting;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class App {
     public static void main(String[] args) {
@@ -21,8 +22,7 @@ public class App {
         // vypis foreach A. Filan
         System.out.println(" ----- vypis foreach A. Filan");
         people.forEach((person -> {
-            var fName = person.getfName().charAt(0);
-            System.out.println(fName +". "+ person.getlName());
+            System.out.println(person.getfName().charAt(0) +". "+ person.getlName());
         }));
 
         // vypis podla gender
@@ -31,6 +31,10 @@ public class App {
             if (person.getGender() == 'f')
                 person.print();
         });
+
+        // filter by gender
+        List<Person> females = people.stream().filter(person -> person.getGender() == 'f').collect(Collectors.toList());
+        females.forEach(Person::print);
 
         // sort by age
         System.out.println(" ----- sort by age");
