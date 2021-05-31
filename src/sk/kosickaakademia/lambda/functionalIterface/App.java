@@ -1,4 +1,4 @@
-package sk.kosickaakademia.lambda;
+package sk.kosickaakademia.lambda.functionalIterface;
 
 public class App {
     public static void main(String[] args) {
