@@ -47,5 +47,16 @@ public class App {
         people.sort(Comparator.comparing(Person::getfName));
         //people.sort((a,b) -> a.getfName().compareTo(b.getfName()));
         people.forEach(Person::print);
+
+        // sort by lName then fName
+        System.out.println(" ----- sort by lName then fName");
+        /*people.sort((a,b) -> {
+            var compareResult = a.getlName().compareTo(b.getlName());
+            return compareResult == 0
+                    ? a.getfName().compareTo(b.getfName())
+                    : compareResult;
+        });*/
+        people.sort(Comparator.comparing(Person::getlName).thenComparing(Person::getfName)); // comparator chain
+        people.forEach(Person::print);
     }
 }
