@@ -1,6 +1,7 @@
 package sk.kosickaakademia.lambda.sorting;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -64,5 +65,12 @@ public class App {
             person.print();
             System.out.println(person.getHashCode());
         });
+
+        // randomly reorder people
+        Collections.shuffle(people);
+
+        // filter below 18 years old
+        List<Person> underAged = people.stream().filter(person -> person.getAge() < 18).collect(Collectors.toList());
+        underAged.forEach(Person::print);
     }
 }

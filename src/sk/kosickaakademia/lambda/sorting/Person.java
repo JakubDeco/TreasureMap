@@ -6,7 +6,7 @@ public class Person {
     private final char gender;
     private final int age;
 
-    private static final char[] samohlasky = {'a','e','i','o','u'};
+    private static final char[] samohlasky = {'a','e','i','o','u','y'};
 
     public Person(String fName, String lName, char gender, int age) {
         this.fName = fName;
