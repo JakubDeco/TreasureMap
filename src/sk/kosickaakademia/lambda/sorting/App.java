@@ -58,5 +58,11 @@ public class App {
         });*/
         people.sort(Comparator.comparing(Person::getlName).thenComparing(Person::getfName)); // comparator chain
         people.forEach(Person::print);
+
+        // printing people with their hashCodes
+        people.forEach(person -> {
+            person.print();
+            System.out.println(person.getHashCode());
+        });
     }
 }
