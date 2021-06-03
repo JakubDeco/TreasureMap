@@ -1,9 +1,10 @@
 package sk.kosickaakademia.treasureMap;
 
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Map {
+public class Map implements Serializable {
     private int width;
     private int height;
     private boolean found = false;
